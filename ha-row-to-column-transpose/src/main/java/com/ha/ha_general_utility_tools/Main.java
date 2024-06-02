@@ -72,10 +72,28 @@ public class Main {
                                 String regex = "\\s+(\\S+)";
                                 Pattern pattern = Pattern.compile(regex);
                                 Matcher matcher = pattern.matcher(temp1);
+                                String prodEndpoint = null;
 
                                 if (matcher.find()) {
                                     outputCell = outputRow.createCell(colIndex++);
-                                    outputCell.setCellValue(matcher.group(1)); // Return the matched text
+                                    prodEndpoint = matcher.group(1);
+                                    outputCell.setCellValue(prodEndpoint); // Return the matched text
+                                }
+
+                                if (prodEndpoint != null && prodEndpoint.contains("://")) {
+                                    int thirdSlashIndex = prodEndpoint.indexOf("/", prodEndpoint.indexOf("/", prodEndpoint.indexOf("/") + 1) + 1);
+
+                                    if (thirdSlashIndex != -1) {
+                                        outputCell = outputRow.createCell(colIndex++);
+                                        outputCell.setCellValue(prodEndpoint.substring(0, thirdSlashIndex));
+                                    }
+                                } else if (prodEndpoint != null) {
+                                    int firstSlashIndex = prodEndpoint.indexOf('/');
+
+                                    if (firstSlashIndex != -1) {
+                                        outputCell = outputRow.createCell(colIndex + 1);
+                                        outputCell.setCellValue(prodEndpoint.substring(0, firstSlashIndex));
+                                    }
                                 }
                             } else if (temp1.contains("_APIsandboxEndpoint")) {
                                 int position = temp1.indexOf("_APIsandboxEndpoint");
@@ -88,21 +106,58 @@ public class Main {
                                 String regex = "\\s+(\\S+)";
                                 Pattern pattern = Pattern.compile(regex);
                                 Matcher matcher = pattern.matcher(temp1);
+                                String sandboxEndpoint = null;
 
                                 if (matcher.find()) {
-                                    outputCell = outputRow.createCell(colIndex + 1);
-                                    outputCell.setCellValue(matcher.group(1)); // Return the matched text
+                                    ++colIndex;
+                                    outputCell = outputRow.createCell(++colIndex);
+                                    sandboxEndpoint = matcher.group(1);
+                                    outputCell.setCellValue(sandboxEndpoint); // Return the matched text
+                                }
+
+                                if (sandboxEndpoint != null && sandboxEndpoint.contains("://")) {
+                                    int thirdSlashIndex = sandboxEndpoint.indexOf("/", sandboxEndpoint.indexOf("/", sandboxEndpoint.indexOf("/") + 1) + 1);
+
+                                    if (thirdSlashIndex != -1) {
+                                        outputCell = outputRow.createCell(++colIndex);
+                                        outputCell.setCellValue(sandboxEndpoint.substring(0, thirdSlashIndex));
+                                    }
+                                } else if (sandboxEndpoint != null) {
+                                    int firstSlashIndex = sandboxEndpoint.indexOf('/');
+
+                                    if (firstSlashIndex != -1) {
+                                        outputCell = outputRow.createCell(++colIndex);
+                                        outputCell.setCellValue(sandboxEndpoint.substring(0, firstSlashIndex));
+                                    }
                                 }
                             }
                         }
-                    } else if (inputCell != null && colIndex == 5) {
+                    } else if (inputCell != null && colIndex == 6) {
                         if (inputCell.toString().contains("_APIsandboxEndpoint")) {
                             String regex = "\\s+(\\S+)";
                             Pattern pattern = Pattern.compile(regex);
                             Matcher matcher = pattern.matcher(inputCell.toString());
+                            String sandboxEndpoint = null;
 
                             if (matcher.find()) {
-                                outputCell.setCellValue(matcher.group(1)); // Return the matched text
+                                sandboxEndpoint = matcher.group(1);
+                                outputCell.setCellValue(sandboxEndpoint); // Return the matched text
+                            }
+
+                            if (sandboxEndpoint != null && sandboxEndpoint.contains("://")) {
+                                int thirdSlashIndex = sandboxEndpoint.indexOf("/", sandboxEndpoint.indexOf("/", sandboxEndpoint.indexOf("/") + 1) + 1);
+
+                                if (thirdSlashIndex != -1) {
+                                    outputCell = outputRow.createCell(colIndex + 1);
+                                    outputCell.setCellValue(sandboxEndpoint.substring(0, thirdSlashIndex));
+                                }
+                            } else if (sandboxEndpoint != null) {
+                                int firstSlashIndex = sandboxEndpoint.indexOf('/');
+
+                                if (firstSlashIndex != -1) {
+                                    outputCell = outputRow.createCell(colIndex + 1);
+                                    outputCell.setCellValue(sandboxEndpoint.substring(0, firstSlashIndex));
+                                }
                             }
                         }
                     }
