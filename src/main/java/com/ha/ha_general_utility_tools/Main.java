@@ -1,4 +1,4 @@
-package com.example.ha_general_utility_tools;
+package com.ha.ha_general_utility_tools;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
