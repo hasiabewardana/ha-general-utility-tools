@@ -6,6 +6,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,7 +29,7 @@ public class Main {
 
             System.out.printf("Number of Rowa: %d\n", numRows);
 
-            int outputRowIndex = 0;
+            int outputRowIndex = 1;
             int colIndex = 0;
             Row outputRow = outputSheet.createRow(outputRowIndex);
 
@@ -36,10 +39,72 @@ public class Main {
                 if (inputRow != null) {
                     Cell inputCell = inputRow.getCell(0);
                     Cell outputCell = outputRow.createCell(colIndex++);
-                    if (inputCell != null) {
-                        outputCell.setCellValue(inputCell.toString());
-                    } else {
-                        outputCell.setCellValue("");
+
+                    if (inputCell != null && colIndex == 1) {
+                        if (inputCell.toString().startsWith("Context: ")) {
+                            outputCell.setCellValue(inputCell.toString().substring("Context: ".length()));
+                        }
+                    } else if (inputCell != null && colIndex == 2) {
+                        Row thirdInputRow = inputSheet.getRow(rowIndex + 1);
+                        Cell inputCellThirdInputRow;
+
+                        if (thirdInputRow != null) {
+                            inputCellThirdInputRow = thirdInputRow.getCell(0);
+
+                            if (Objects.equals(inputCell.toString(), "Endpoints and URI Templates:")
+                                    && inputCellThirdInputRow.toString().startsWith("GITCRM")) {
+                                outputCell.setCellValue("GITCRM");
+                            }
+                        }
+                    } else if (inputCell != null && colIndex == 3) {
+                        if (inputCell.toString().startsWith("GITCRM--")) {
+                            String temp1 = inputCell.toString().substring("GITCRM--".length());
+                            String temp2;
+
+                            if (temp1.contains("_APIproductionEndpoint")) {
+                                int position = temp1.indexOf("_APIproductionEndpoint");
+
+                                if (position != -1) {
+                                    temp2 = temp1.substring(0, position);
+                                    outputCell.setCellValue(temp2);
+                                }
+
+                                String regex = "\\s+(\\S+)";
+                                Pattern pattern = Pattern.compile(regex);
+                                Matcher matcher = pattern.matcher(temp1);
+
+                                if (matcher.find()) {
+                                    outputCell = outputRow.createCell(colIndex++);
+                                    outputCell.setCellValue(matcher.group(1)); // Return the matched text
+                                }
+                            } else if (temp1.contains("_APIsandboxEndpoint")) {
+                                int position = temp1.indexOf("_APIsandboxEndpoint");
+
+                                if (position != -1) {
+                                    temp2 = temp1.substring(0, position);
+                                    outputCell.setCellValue(temp2);
+                                }
+
+                                String regex = "\\s+(\\S+)";
+                                Pattern pattern = Pattern.compile(regex);
+                                Matcher matcher = pattern.matcher(temp1);
+
+                                if (matcher.find()) {
+                                    outputCell = outputRow.createCell(colIndex + 1);
+                                    outputCell.setCellValue(matcher.group(1)); // Return the matched text
+                                }
+                            }
+                        }
+                    } else if (inputCell != null && colIndex == 5) {
+                        if (inputCell.toString().contains("_APIsandboxEndpoint")) {
+                            String regex = "\\s+(\\S+)";
+                            Pattern pattern = Pattern.compile(regex);
+                            Matcher matcher = pattern.matcher(inputCell.toString());
+
+                            if (matcher.find()) {
+                                outputCell.setCellValue(matcher.group(1)); // Return the matched text
+                            }
+                        }
                     }
                 } else {
                     colIndex = 0;
