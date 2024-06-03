@@ -1,0 +1,13 @@
+
+š	java:S127-"XRefactor the code in order to not assign to this loop counter from within the loop body.(ÌÊò8‰ñ®úı1J$b5572c75-2db0-41eb-a13b-670bbf56d558
+•
+java:S2095"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(ê¥çışÿÿÿÿ8êµúı1J$c7e43ae1-bf9a-4cf6-9350-6e3080655388
+’
+java:S2095"JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(óš² øÿÿÿÿ8êµúı1J$781bd7f3-e179-4970-9378-f3c903da9e79
+}
+java:S1118":Add a private constructor to hide the implicit public one.(íµè¾8âß±úı1J$130e071f-74b5-461c-80e3-0d1e079ecb48
+„
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(™Ò“‰8“¯´úı1J$bd60b478-0400-4e8b-96e2-5422773b3407
+„
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(‰ùØ8Ó´úı1J$71611d7b-a058-4df6-b7d9-f6eef2afcd3f
+m	java:S1069"+Replace this use of System.out by a logger.(‰ã¸³8ñ®úı1J$80b85644-6813-423d-bd1e-628647998578

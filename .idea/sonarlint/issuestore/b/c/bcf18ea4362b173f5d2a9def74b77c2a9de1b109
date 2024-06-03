@@ -1,0 +1,13 @@
+
+‘
+java:S11924"IDefine a constant instead of duplicating this literal "GITCRM--" 3 times.(ß…½íüÿÿÿÿ8­îþùý1J$0c0c0ef7-1b35-443b-8a9a-245f53e06a70
+w
+java:S10668"/Merge this if statement with the enclosing one.(ß…½íüÿÿÿÿ8®îþùý1J$264a4ead-ea6e-42d0-824d-3e8eceec59c7
+‚
+java:S1118":Add a private constructor to hide the implicit public one.(êÎ±¦øÿÿÿÿ8Ÿïþùý1J$a41ed4d9-7d76-4cb5-a555-445c7882e051
+š
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 38 to the 15 allowed.(Å€ç¥øÿÿÿÿ8 ïþùý1J$4bccbb2c-211c-465e-8c6d-efb9120a5199
+™
+java:S3457"Q%n should be used in place of \n to produce the platform-specific line separator.(ý´¹Žþÿÿÿÿ8©ïþùý1J$3ca4f333-9ac5-4df5-879e-c3aa30189a75
+r	java:S106"+Replace this use of System.out by a logger.(ý´¹Žþÿÿÿÿ8ªïþùý1J$c6aade0b-9f7a-4d8e-9a61-91b50210bacf
+m	java:S106|"+Replace this use of System.out by a logger.(ñÄË¸8­ïþùý1J$4b3e355f-59ca-41df-919d-fe9235c99608

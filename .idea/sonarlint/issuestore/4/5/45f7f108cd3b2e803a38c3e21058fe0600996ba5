@@ -1,0 +1,17 @@
+
+—
+java:S1192`"TDefine a constant instead of duplicating this literal "_APIsandboxEndpoint" 3 times.(Û¤ Ì8´†öı1J$34cce535-37c8-4644-a381-2d40a80577df
+
+java:S1192F"KDefine a constant instead of duplicating this literal "\\s+(\\S+)" 3 times.(Î·¬¶8‘´†öı1J$f81d39a9-88cb-48f6-8f1d-55dbc8d27e7a
+x
+java:S1066†"/Merge this if statement with the enclosing one.(ÃÙÛıûÿÿÿÿ8‘´†öı1J$4e2c4d3e-d1fa-4b15-8e95-348849efbc17
+‚
+java:S1118":Add a private constructor to hide the implicit public one.(ù¿ªÀúÿÿÿÿ8˜µ†öı1J$8d71152f-2271-4bda-9d58-ee5e3ff5b327
+–
+java:S3776"SRefactor this method to reduce its Cognitive Complexity from 135 to the 15 allowed.(ÿàÖ¢8šµ†öı1J$0328fd67-fb3f-4e2a-8a35-472558b21c65
+™
+java:S3457"Q%n should be used in place of \n to produce the platform-specific line separator.(ı´¹şÿÿÿÿ8¨µ†öı1J$c27e37be-2fda-4c90-bc06-c63b6c2c1483
+r	java:S106"+Replace this use of System.out by a logger.(ı´¹şÿÿÿÿ8¨µ†öı1J$12f0a85c-cee9-4449-88da-3e5e1b85ee05
+n	java:S106ª"+Replace this use of System.out by a logger.(ñÄË¸8®µ†öı1J$11d8d578-ed69-4fa0-923f-2a4a0a1f8330
+Š
+java:S6541"ÆA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 132 to 64, Complexity from 39 to 14, Nesting Level from 8 to 2, Number of Variables from 41 to 6.(ÿàÖ¢8±µ†öı1J$421a4217-bc5a-4c40-a11e-fc645066b019
